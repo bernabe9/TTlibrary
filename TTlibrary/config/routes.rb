@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  root :to => redirect('/home')
-  get 'home' => 'books#index'
+  root 'books#home'
 
-  resources :books
+  resources :authors do
+    resources :books
+  end
+
+
   
+  get 'books' => 'books#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

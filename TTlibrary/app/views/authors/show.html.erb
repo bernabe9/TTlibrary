@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @author.first_name.titleize %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @author.last_name.titleize %>
+</p>
+
+<%= link_to 'Edit', edit_author_path(@author) %>
