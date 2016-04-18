@@ -19,3 +19,8 @@
   <strong>Author:</strong>
   <td><%= link_to @book.author.first_name.titleize + ' ' + @book.author.last_name.titleize ,  author_path(@book.author) %></td>
 </p>
+
+<p>
+  <strong>Comments:</strong>
+  <td><%= render "comments/index" %></td>
+</p>

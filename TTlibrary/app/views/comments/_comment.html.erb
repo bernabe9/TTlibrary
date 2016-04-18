@@ -1,0 +1,10 @@
+<%= div_for comment do %>
+  <table>
+    <tr><td><%= comment.created_at %></td></tr>
+    <tr><td><%= comment.text %></td></tr>
+  </table>
+  <div class="actions">
+    <%= link_to 'edit', edit_author_book_comment_path(book.author, book, comment) %>
+    <%= link_to 'delete', author_book_comment_path(book.author, book, comment), method: :delete, remote: true %>
+  </div>
+<% end %>
