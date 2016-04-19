@@ -1,4 +1,4 @@
-  <%= form_for([book.author, book, Comment.new], remote: true) do |f| %>
+  <%= form_for([@book.author, @book, Comment.new], remote: true) do |f| %>
   <div class="field">
     <%= f.text_field :text %>
   </div>

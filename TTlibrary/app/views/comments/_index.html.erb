@@ -7,9 +7,12 @@
 </td>
 </tr>
 
+<% if user_signed_in? %>
 <tr>
 <td>
   <%= render "comments/form" %> 
 </td>
 </tr>
+<% end %>
+
 </table>
