@@ -1,5 +1,5 @@
 class AddAuthorToBook < ActiveRecord::Migration
   def change
-    add_column :books, :author_id
+    add_column :books, :author_id, :integer
   end
 end

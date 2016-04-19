@@ -1,0 +1,5 @@
+<% if @comment.new_record? %>
+  $('input#comment_text');
+<% else %>
+  $('div#comments').append("<%= escape_javascript(render @comment) %>");
+<% end %>

@@ -1,0 +1,8 @@
+  <%= form_for([book.author, book, Comment.new], remote: true) do |f| %>
+  <div class="field">
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add comment" %>
+  </div>
+  <% end %>

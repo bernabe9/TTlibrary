@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root 'books#home'
 
   resources :authors do
-    resources :books
+    resources :books do
+      resources :comments
+    end
   end
-
-
   
   get 'books' => 'books#home'
   # The priority is based upon order of creation: first created -> highest priority.

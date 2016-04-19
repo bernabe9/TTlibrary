@@ -1,0 +1,12 @@
+<h1>Editing Comment</h1>
+
+  <%= form_for([book.author, book, @comment]) do |f| %>
+  <div class="field">
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Edit comment" %>
+  </div>
+  <% end %>
+
+<td><%= link_to 'Back',  author_book_path(book.author, book) %></td>
