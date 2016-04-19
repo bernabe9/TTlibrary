@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-  helper_method :author, :book
+  helper_method :author
 
   #GET /books
   def home
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @comments = book.comments
+    @comments = @book.comments
   end
 
   # GET /books/new
@@ -82,9 +82,5 @@ class BooksController < ApplicationController
 
     def author
       @author ||= Author.find(params[:author_id])
-    end
-
-    def book
-      @book ||= Book.find(params[:book_id])
     end
 end

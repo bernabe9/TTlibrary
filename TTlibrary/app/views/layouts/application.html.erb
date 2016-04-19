@@ -8,7 +8,17 @@
 </head>
 <body>
 <td><%= link_to 'Home', root_path %></td> | 
-<td><%= link_to 'Authors', authors_path %></td>
+<td><%= link_to 'Authors', authors_path %></td> |
+<% if user_signed_in? %>
+  <td><%= current_user.email %></td> |
+  <td><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></td>
+<% else %>
+  <td><%= link_to 'Sign up', new_user_session_path %></td> |
+  <td><%= link_to 'Sign in', new_user_registration_path %></td>
+<% end %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 

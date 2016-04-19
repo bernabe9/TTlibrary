@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:destroy, :edit, :update] 
+  before_action :set_comment, only: [:destroy, :edit, :update, :user_owner?] 
+  before_action :authenticate_user!, only: [:edit, :create, :destroy, :update]
+  before_action :user_owner?, only: [:destroy, :edit, :update]
+  
 
-  helper_method :book
+  helper_method :book  
 
   def index
     @comments = book.comments
@@ -13,6 +16,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.book = book
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.html { redirect_to [book.author, book] , notice: 'Comment was successfully created.' }
@@ -50,6 +54,14 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text)
+  end
+
+  def user_owner?
+    if @comment.user == current_user
+      true
+    else
+      redirect_to [book.author, book] , notice: 'Unauthorised access'
+    end
   end
 
 end
