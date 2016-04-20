@@ -18,6 +18,10 @@
   <td><%= link_to @book.author.first_name.titleize + ' ' + @book.author.last_name.titleize ,  author_path(@book.author) %></td>
 </p>
 
+<% if user_signed_in? && @request.empty? %>
+  <strong><%= link_to 'Request Book',  author_book_requests_path(@book.author, @book), method: :post %></strong>
+<% end %>
+
 <p>
   <strong>Comments:</strong>
   <td><%= render "comments/index" %></td>
