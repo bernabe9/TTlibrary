@@ -19,7 +19,7 @@
 </p>
 
 <% if user_signed_in? && @request.empty? %>
-  <strong><%= link_to 'Request Book',  author_book_requests_path(@book.author, @book), method: :post %></strong>
+  <strong><%= link_to 'Request Book',user_requests_path(current_user, :book_id => @book.id), method: :post %></strong>
 <% end %>
 
 <p>

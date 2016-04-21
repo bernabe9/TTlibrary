@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   resources :authors do
     resources :books do
-      resources :comments, :requests
+      resources :comments
     end
   end
   
