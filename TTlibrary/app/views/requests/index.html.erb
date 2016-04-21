@@ -1,0 +1,13 @@
+<h1>Listing <%= current_user.email %> requests</h1>
+
+<div id="requests">
+  <table>
+    <tr>
+      <td>Book</td>
+      <td>Number</td>
+      <td>Status</td>
+    </tr>
+
+    <%= render @requests %>
+  </table>
+</div>

@@ -15,10 +15,17 @@ class BooksController < ApplicationController
     @books = author.books
   end
 
-  # GET /books/1
-  # GET /books/1.json
+  # GET author/:author_id/books/:id
+  # GET author/:author_id/books/:id.json
   def show
     @comments = @book.comments
+    if user_signed_in?
+      @request = Request.where('book_id' => params[:id], 'user_id' => current_user.id)
+    end
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @book }
+    end
   end
 
   # GET /books/new
@@ -26,7 +33,7 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  # GET /books/1/edit
+  # GET /books/:id/edit
   def edit
   end
 
@@ -45,8 +52,8 @@ class BooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
+  # PATCH/PUT /books/:id
+  # PATCH/PUT /books/:id.json
   def update
     respond_to do |format|
       if @book.update(book_params)
@@ -59,8 +66,8 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.json
+  # DELETE /books/:id
+  # DELETE /books/:id.json
   def destroy
     @book.destroy
     respond_to do |format|

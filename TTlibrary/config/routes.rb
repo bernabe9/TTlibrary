@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
   root 'books#home'
 
+  resources :users do
+    resources :requests
+  end
+  
   resources :authors do
     resources :books do
       resources :comments
     end
   end
   
-  get 'books' => 'books#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
