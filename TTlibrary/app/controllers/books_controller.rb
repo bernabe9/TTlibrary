@@ -9,22 +9,26 @@ class BooksController < ApplicationController
   end
 
 
-  # GET /books
-  # GET /books.json
+  # GET authors/:author_id/books
   def index
     @books = author.books
   end
 
-  # GET author/:author_id/books/:id
-  # GET author/:author_id/books/:id.json
+  # GET authors/:author_id/books/:id
+  # GET authors/:author_id/books/:id.json
   def show
     @comments = @book.comments
     if user_signed_in?
       @request = Request.where('book_id' => params[:id], 'user_id' => current_user.id)
     end
+    book_author = author.books.pluck(:id).include?(@book.id)
     respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @book }
+      if book_author
+        format.html { render :show }
+        format.json { render json: @book }
+      else
+        format.html { redirect_to author_books_url }
+      end
     end
   end
 
@@ -71,7 +75,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to author_books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

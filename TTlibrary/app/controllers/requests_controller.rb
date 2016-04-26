@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
   helper_method :book  
 
   def index

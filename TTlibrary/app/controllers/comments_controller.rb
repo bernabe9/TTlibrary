@@ -20,6 +20,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to [book.author, book] , notice: 'Comment was successfully created.' }
+      else
+        format.html { render :index }
       end
       format.js
     end
