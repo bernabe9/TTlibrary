@@ -21,9 +21,14 @@ class BooksController < ApplicationController
     if user_signed_in?
       @request = Request.where('book_id' => params[:id], 'user_id' => current_user.id)
     end
+    book_author = author.books.pluck(:id).include?(@book.id)
     respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @book }
+      if book_author
+        format.html { render :show }
+        format.json { render json: @book }
+      else
+        format.html { redirect_to author_books_url }
+      end
     end
   end
 
