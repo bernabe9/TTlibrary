@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use Devise for Users
+gem 'activeadmin', github: 'activeadmin'
+
+# Plus integrations with:
 gem 'devise'
 
 gem 'factory_girl_rails'

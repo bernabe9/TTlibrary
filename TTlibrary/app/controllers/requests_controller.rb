@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   helper_method :book  
 
   def index
- 	@requests = current_user.requests
+  @requests = current_user.requests
   end 
 
   def create
