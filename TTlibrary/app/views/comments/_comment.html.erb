@@ -1,14 +1,25 @@
 <%= div_for comment do %>
   <table>
-    <tr><td> <b><%= comment.user.email %></b> at <%= comment.created_at %></td></tr>
-    <tr><td><%= comment.text %></td></tr>
+    <tr><td> <p class="lato-font"><b><%= comment.user.email %></b> 
+      <% if comment.rate != nil %>
+        <% for i in 0..4 %>
+          <% if comment.rate > i %>
+            <label class="active">★</label>
+          <% else %>
+            <label class="inactive">★</label>
+          <% end %> 
+        <% end %>
+      <% end %>
+
+      </p>  </td></tr>
+    <tr><td> <p class="lato-font"><%= comment.text %></p></td></tr>
   </table>
 
   <% if user_signed_in? && comment.user == current_user %>
-  <div class="actions">
-    <%= link_to 'edit', edit_author_book_comment_path(@book.author, @book, comment) %>
-    <%= link_to 'delete', author_book_comment_path(@book.author, @book, comment), method: :delete, remote: true %>
-  </div>
+    <div class="actions">
+      <%= link_to 'edit', edit_author_book_comment_path(@book.author, @book, comment) %>
+      <%= link_to 'delete', author_book_comment_path(@book.author, @book, comment), method: :delete, remote: true %>
+    </div>
   <% end %>
 
 <% end %>

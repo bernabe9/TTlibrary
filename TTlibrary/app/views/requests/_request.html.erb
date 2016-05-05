@@ -2,12 +2,12 @@
   <tr class="book-row" data-id="<%= request.id %>">
     <td><%= request.book.title.titleize %></td>
     <td><%= request.id %></td>
-    <td><%= request.status %></td>
-    <td><%= link_to "cancel", user_request_path(request.user, request), method: :delete, remote: :true %> </td>
+    <td class="<%= request.status %> align-center"><%= request.status %></td>
+    <td class="align-center"><%= link_to "cancel", user_request_path(request.user, request), method: :delete, remote: :true, class: "link" %> </td>
 
     <% if request.status == "Accepted" %>
-    <td> <%= link_to "GET BOOK", author_book_path(request.book.author, request.book, format: :html) %> </td>
-    <td> <%= link_to "GET JSON", author_book_path(request.book.author, request.book, format: :json) %> </td>
+    <td class="align-center"> <%= link_to "GET BOOK", author_book_path(request.book.author, request.book, format: :html), class: "link" %> </td>
+    <td class="align-center"> <%= link_to "GET JSON", author_book_path(request.book.author, request.book, format: :json), class: "link" %> </td>
   	<% end %>
 
   </tr>

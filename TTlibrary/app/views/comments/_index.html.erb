@@ -1,18 +1,9 @@
-<table>
-<tr>
-<td>
-  <div id="comments">
-    <%= render @comments %>
-  </div>
-</td>
-</tr>
+<div id="comments">
+  <%= render @comments %>
+</div>
 
 <% if user_signed_in? %>
-<tr>
-<td>
-  <%= render "comments/form" %> 
-</td>
-</tr>
+  <div id="comments-form">
+    <%= render "comments/form" %>
+  </div> 
 <% end %>
-
-</table>

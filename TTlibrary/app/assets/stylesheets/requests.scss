@@ -1,3 +1,30 @@
 // Place all the styles related to the Requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.table-request{
+
+  th {
+    padding-right: 20px;
+  }
+}
+
+.Waiting {
+  background-color: #FFED5B;
+  border: solid;
+}
+
+.Accepted{
+  background-color: #0DFF60;
+  border: solid;
+}
+
+.Denied{
+  background-color: #FF544C;
+  border: solid;
+}
+
+.align-center{
+  text-align: center;
+}

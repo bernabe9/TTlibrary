@@ -1,3 +1,53 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book{
+  margin-top: 20px;
+  padding: 15px 0px 15px 0px;
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 2px;
+  border-color: #D9DDDE;
+
+  .description{
+    padding: 10px 0 0 0;
+    border-top: solid;
+    border-width: 1.5px;
+    border-color: #D9DDDE;
+    
+    p {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  .title{
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+  }
+
+  .lato-font{
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .year-request{
+    position: relative;
+    height: 35px;
+
+    a {
+      position: absolute;
+      right: 0;
+      font-weight: 700;
+      border-bottom: solid;
+      padding: 0;
+    }
+
+    p {
+      position: absolute;
+      left: 0;
+    }
+  }
+}

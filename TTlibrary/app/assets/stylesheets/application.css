@@ -10,6 +10,112 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ * require_tree .
  *= require_self
+ *= require books
+ *= require comments
+ *= require authors
+ *= require requests
+ *= require users
  */
+
+/* @font-face {
+  font-family: "Butler ExtraBold";
+  src: url(/assets/fonts/Butler_ExtraBold.otf) format("truetype");
+}*/
+
+.nav{
+  position: relative;
+  height: 55px;
+  margin: 25px 0px 0px 0px;  /* top right bottom left, without bootstrap col 35px for right and left */ 
+  border-bottom: solid;
+  border-width: 1.5px;
+}
+
+.nav ul {
+  bottom: 0px;
+  margin: 0 0 0 0;
+  padding-left: 0;
+}
+
+.nav li{
+  position: absolute;
+  position: relative;
+  display: inline-block;
+  height: 55px;
+  width: auto;
+  right: 0;
+}
+
+.link{
+  color: black;
+  padding: 0 0 12px 0;
+}
+
+.nav-title{
+  position: absolute;
+  height: 55px;
+  width: 200px;
+  left: 0px;
+  bottom: 0px;
+  font-size: 30px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.nav-title ul{
+  height: 55px;
+  width: 200px;
+}
+
+.nav-right{
+  position: absolute;
+  display: block;
+  height: 55px;
+  width: 900px;
+  right: 0px;
+  bottom: 0px;
+  padding-left: 0px;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.nav-right ul {
+  float: right;
+  height: 55px;
+  right: 0;
+  display: inline-block;
+}
+
+.nav-right li {
+  display: inline-block;
+  right: 0;
+  margin-left: 38px;
+  margin-top: 17px;
+}
+
+.nav-right p {
+  bottom: 0;
+  right: 0;
+  color: black;
+  padding: 0 0 15px 0;
+  margin-bottom: 0;
+}
+
+/* mouse over link */
+a.link:hover {
+  color: black;
+  text-decoration: none;
+  border-bottom: solid;
+  border-width: 2px;  
+}
+
+/* selected link */
+a.link:active {
+}
+
+.lato-font{
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  color: black;
+  font-weight: 400;
+}

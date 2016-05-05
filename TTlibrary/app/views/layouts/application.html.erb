@@ -5,23 +5,49 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
-<td><%= link_to 'Home', root_path %></td> | 
-<td><%= link_to 'Authors', authors_path %></td> |
-<% if user_signed_in? %>
-  <td><%= current_user.email %></td> |
-  <td><%= link_to 'My books', user_requests_path(current_user) %></td> |
-  <td><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></td>
-<% else %>
-  <td><%= link_to 'Sign in', new_user_session_path %></td> |
-  <td><%= link_to 'Sign up', new_user_registration_path %></td>
-<% end %>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    
+    <div class="col-xs-10"> 
+      <nav class="nav">
+        <div class="nav-title">
+          <ul>
+            <li><%= link_to 'The Library', root_path, class: "link" %></li>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <ul>
+            <li><%= link_to 'Authors', authors_path, class: "link" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to 'My books', user_requests_path(current_user), class: "link" %></li>
+              <li><p><%= current_user.email %></p></li>
+              <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: "link" %></li>
+            <% else %>
+              <li><%= link_to 'Sign in', new_user_session_path, class: "link" %></li>
+              <li><%= link_to 'Sign up', new_user_registration_path, class: "link" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
 
-<%= yield %>
+      <%= yield %>
+    </div>
+
+    <div class="col-xs-1"></div>
+  </div>
 
 </body>
 </html>

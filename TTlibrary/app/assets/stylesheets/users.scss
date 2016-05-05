@@ -1,0 +1,28 @@
+
+
+.login {
+  border: solid;
+  border-width: 2px;
+  border-color: #D9DDDE;
+  padding-bottom: 21px;
+  margin: 20px 0 20px 0;
+  padding-bottom: 32px;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+  }
+
+  .link{
+    padding-bottom: 2px;
+  }
+
+  .button{
+    float: none;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,42 @@
+// Place all the styles related to the author controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list{
+  h1 {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #D9DDDE;
+    padding: 15px 0 15px 0;
+    margin: 20px 0 20px 0;
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+  }
+
+  table{
+    width: 100%
+  }
+
+  th {
+    font-weight: 700;
+    padding-right: 95px;
+  }
+
+  tr{
+    padding-bottom: 15px;
+    height: 50px;
+  }
+
+  thead{
+    border-bottom: solid;
+    border-width: 1.5px;
+    border-color: #D9DDDE;
+  }
+
+  a {
+    font-weight: 700;
+    padding-bottom: 8px;
+  }
+
+}

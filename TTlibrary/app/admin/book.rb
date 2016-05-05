@@ -1,5 +1,5 @@
 ActiveAdmin.register Book do
-  permit_params :title, :year, :ISBN, :author_id, :img
+  permit_params :title, :year, :ISBN, :author_id, :img, :description
 
   index as: :grid do |book|
     a href: admin_book_path(book) do
@@ -35,6 +35,7 @@ ActiveAdmin.register Book do
       row :title
       row :year
       row :ISBN
+      row :description
       row :created_at
       row :updated_at
       row :author
@@ -50,6 +51,7 @@ ActiveAdmin.register Book do
       f.input :title
       f.input :year
       f.input :ISBN
+      f.input :description
       f.input :img, as: :file
     end
     f.actions
