@@ -15,7 +15,7 @@
         <td><%= book.year %></td>
         <td><%= book.ISBN %></td>
 
-        <td><%= link_to 'Show',  author_book_path(book.author, book) %></td>
+        <td><%= link_to 'Show',  author_book_path(book.author, book), class: "lato-font link" %></td>
 
       </tr>
     <% end %>

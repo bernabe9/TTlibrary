@@ -1,3 +1,10 @@
-<h1>Listing <%= @author.first_name.titleize %>'s Books</h1>
+<div class="row list">
+  <div class="col-xs-3"></div>
+  <div class="col-xs-5">
+    <h1><%= @author.first_name.titleize %>'s Books</h1>
 
-<%= render 'list' %>
+    <%= render 'list' %>
+  </div>
+  <div class="col-xs-3"></div>
+
+</div>

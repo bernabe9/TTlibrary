@@ -1,24 +1,28 @@
-<h1>Listing Authors</h1>
+<div class="row list">
+  <div class="col-xs-3"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+  <div class="col-xs-5"> 
+    <h1>Authors</h1>
 
-  <tbody>
-    <% @authors.each do |author| %>
-      <tr>
-        <td><%= author.first_name.titleize %></td>
-        <td><%= author.last_name.titleize %></td>
-        <td><%= link_to 'Books', author_books_path(author) %></td>
-        <td><%= link_to 'Show', author %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="lato-font">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= author.first_name.titleize %></td>
+          <td><%= author.last_name.titleize %></td>
+          <td class="author-books"><%= link_to 'Books', author_books_path(author), class: "lato-font link" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-xs-3"></div>
+</div>
 <br>

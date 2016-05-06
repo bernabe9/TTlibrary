@@ -1,3 +1,97 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comments{
+  margin: 15px 0 15px 0;
+
+  p{
+    margin: 0 0 0 0;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .lato-font{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+div#comments{
+  border-bottom: solid;
+  border-width: 1.5px;
+  border-color: #D9DDDE;
+
+  .comment {
+    border-bottom: solid;
+    border-width: 1.5px;
+    border-color: #D9DDDE;
+    padding: 15px 0 15px 0;
+  }
+}
+
+div#comments-form{
+  margin: 15px 0 15px 0;
+
+  p {
+    float: left;
+  } 
+
+  .field{
+    height: auto;
+    margin-bottom: 15px;
+
+    textarea#comment_text{
+      width: 100%;
+      height: 150px;
+      resize: none;
+      padding: 10px 10px 10px 10px;
+      font-weight: 300;
+    }
+  }
+}
+
+.button{
+  float: right;
+  background-color: black;
+  border-color: black;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  margin-bottom: 20px;
+}
+
+.rating {
+    color: #afb6b1;
+    margin-bottom: 20px;
+
+    .stars{
+      float: left;
+    }
+}
+
+.rating span { float:right;}
+.rating span input {
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+}
+
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+  color: black;
+}
+
+.active{
+  color: black;
+}
+
+.inactive{
+  color: #afb6b1;
+}
