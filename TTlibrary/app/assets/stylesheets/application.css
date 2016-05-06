@@ -24,6 +24,10 @@
   src: url(/assets/fonts/Butler_ExtraBold.otf) format("truetype");
 }*/
 
+h1 {
+  text-align: center;
+}
+
 .nav{
   position: relative;
   height: 55px;
