@@ -6,12 +6,6 @@ describe RequestsController do
 
   describe "GET #index" do
     before { sign_in request.user }
-    # before(:each) do
-      # @author = create(:author)
-      # @book = create(:book, author_id: @author.id)
-      # @user = create(:user)
-      # sign_in @user
-    # end 
 
     it "populates an array of user's requests" do
       get :index, user_id: request.user
@@ -20,7 +14,7 @@ describe RequestsController do
 
     it "renders the :index view" do
       get :index, user_id: request.user
-      response.should render_template :index
+      expect(response).to render_template(:index)
     end
   end
 

@@ -12,7 +12,7 @@ describe CommentsController do
 
     it "renders the :index view" do
       get :index, book_id: comment.book, author_id: comment.book.author
-      response.should render_template :index
+      expect(response).to render_template(:index)
     end
   end
 
@@ -44,7 +44,7 @@ describe CommentsController do
   describe 'PUT update' do
     it "located the requested @comment" do
       put :update, id: comment, book_id: comment.book, author_id: comment.book.author, comment: attributes_for(:comment)
-      assigns(:comment).should eq(comment)
+      expect(assigns(:comment)).to eq(comment)
     end
 
     context "user signed in and comment owner" do
@@ -54,7 +54,7 @@ describe CommentsController do
         it "changes @comment's attributes" do
           put :update, id: comment, book_id: comment.book, author_id: comment.book.author, comment: attributes_for(:comment, text: "comment edited")
           comment.reload
-          comment.text.should eq("comment edited")
+          expect(comment.text).to eq("comment edited")
         end
       end
 
@@ -62,7 +62,7 @@ describe CommentsController do
         it "does not change @comment's attributes" do
           put :update, id: comment, book_id: comment.book, author_id: comment.book.author, comment: attributes_for(:comment, text: nil)
           comment.reload
-          comment.text.should_not eq(nil)
+          expect(comment.text).to_not eq(nil)
         end
       end
     end
@@ -76,7 +76,7 @@ describe CommentsController do
       it "does not change @comment's attributes" do
         put :update, id: comment, book_id: comment.book, author_id: comment.book.author, comment: attributes_for(:comment, text: "comment edited")
         comment.reload
-        comment.text.should_not eq("comment edited")
+        expect(comment.text).to_not eq("comment edited")
       end
     end
   end
