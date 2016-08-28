@@ -13,7 +13,7 @@ let(:book2) { create(:book) }
 
     it "renders the :home view" do
       get :home
-      response.should render_template :home
+      expect(response).to render_template(:home)
     end  
   end
   
@@ -26,7 +26,7 @@ let(:book2) { create(:book) }
 
     it "renders the :index view" do
       get :index, author_id: book.author.id
-      response.should render_template :index
+      expect(response).to render_template(:index)
     end
   end
   
@@ -39,7 +39,7 @@ let(:book2) { create(:book) }
 
     it "renders the :show template" do
       get :show, id: book, author_id: book.author.id
-      response.should render_template :show
+      expect(response).to render_template(:show)
     end
   end
   
@@ -50,7 +50,7 @@ let(:book2) { create(:book) }
     end
     it "renders the :new template" do
       get :new, author_id: book.author.id
-      response.should render_template :new
+      expect(response).to render_template(:new)
     end
   end
 
@@ -59,11 +59,11 @@ let(:book2) { create(:book) }
 
     context "with valid attributes" do
       it "saves the new book in the database" do
-        expect{ post :create, book: attributes_for(:book), author_id: author.id }.to change(Book,:count).by(1)
+        expect{ post :create, book: attributes_for(:book), author_id: book.author }.to change(Book,:count).by(1)
       end
       it "redirects to the show book" do
         get :show, id: book, author_id: book.author.id
-        response.should render_template :show
+        expect(response).to render_template(:show)
       end
     end
     
@@ -75,7 +75,7 @@ let(:book2) { create(:book) }
       end
       it "re-renders the :new template" do
         get :new, author_id: author
-        response.should render_template :new
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -89,7 +89,7 @@ let(:book2) { create(:book) }
       
     it "redirects to books#index" do
       delete :destroy, id: book, author_id: book.author.id
-      response.should redirect_to author_books_url
+      expect(response).to redirect_to(author_books_url)
     end
   end
 end

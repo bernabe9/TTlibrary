@@ -4,11 +4,11 @@ require "rails_helper"
 describe Comment do
   #Validations
   it "has a valid factory" do
-    build(:comment).should be_valid
+    expect(build(:comment)).to be_valid
   end
 
   it "is invalid without a text" do
-    build(:comment, text: nil).should_not be_valid
+    expect(build(:comment, text: nil)).to_not be_valid
   end
   
 end

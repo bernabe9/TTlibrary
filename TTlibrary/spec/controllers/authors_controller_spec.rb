@@ -12,7 +12,7 @@ describe AuthorsController do
 
     it "renders the :index view" do
       get :index
-      response.should render_template :index
+      expect(response).to render_template(:index)
     end
   end
   
@@ -24,7 +24,7 @@ describe AuthorsController do
 
     it "renders the :show template" do
       get :show, id: create(:author)
-      response.should render_template :show
+      expect(response).to render_template(:show)
     end
   end
   
@@ -35,7 +35,7 @@ describe AuthorsController do
     end
     it "renders the :new template" do
       get :new
-      response.should render_template :new
+      expect(response).to render_template(:new)
     end
   end
   
@@ -46,7 +46,7 @@ describe AuthorsController do
       end
       it "redirects to the show author" do
         get :show, id: author
-        response.should render_template :show
+        expect(response).to render_template(:show)
       end
     end
     
@@ -57,7 +57,7 @@ describe AuthorsController do
       end
       it "re-renders the :new template" do
         get :new
-        response.should render_template :new
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -65,7 +65,7 @@ describe AuthorsController do
   describe 'PUT update' do
     it "located the requested @author" do
       put :update, id: author, author: attributes_for(:author)
-      assigns(:author).should eq(author)      
+      expect(assigns(:author)).to eq(author)      
     end
     
     context "valid attributes" do    
@@ -73,13 +73,13 @@ describe AuthorsController do
         put :update, id: author, 
           author: attributes_for(:author, first_name: "Larry", last_name: "Smith")
         author.reload
-        author.first_name.should eq("Larry")
-        author.last_name.should eq("Smith")
+        expect(author.first_name).to eq("Larry")
+        expect(author.last_name).to eq("Smith")
       end
     
       it "redirects to the updated author" do
         put :update, id: author, author: attributes_for(:author)
-        response.should redirect_to author
+        expect(response).to redirect_to(author)
       end
     end
     
@@ -88,12 +88,12 @@ describe AuthorsController do
         put :update, id: author, 
           author: attributes_for(:author, first_name: "Larry", last_name: nil)
         author.reload
-        author.first_name.should_not eq("Larry")
+        expect(author.first_name).not_to eq("Larry")
       end
       
       it "re-renders the edit method" do
         put :update, id: author, author: attributes_for(:author, first_name: nil)
-        response.should render_template :edit
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -107,7 +107,7 @@ describe AuthorsController do
       
     it "redirects to authors#index" do
       delete :destroy, id: author
-      response.should redirect_to authors_url
+      expect(response).to redirect_to(authors_url)
     end
   end
 
